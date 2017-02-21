@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Simplifique sua URL aqui</title>
+	<link rel="stylesheet" type="text/css" href="resources/css/bootstrap.min.css">
+	<link href="resources/img/fav.ico" rel="icon">
+	<style type="text/css">
+
+	.resultado {
+		padding: 15px 0px; 
+	}
+
+	.img-copy{
+		width:20px; 
+		height:20px
+	}
+
+	</style>
+
+</head>
+<body>
+
+	<header class="container">
+		
+	</header>
+
+	<section class="container">
+		<form>
+		  <div class="form-group">
+		    <label for="link-url">Simplifique sua url</label>
+		    <input type="text" class="form-control" id="link-url" placeholder="Digite aqui seu link">
+		  </div>
+
+		  <button type="submit" class="btn btn-primary">Gerar seu novo link</button>
+
+		</form>
+
+		
+
+		<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button>
+
+	</section>
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Link gerado</h4>
+      </div>
+      <div class="modal-body">
+		  <div class="resultado">
+		    <label for="link-gerado"></label>
+			<input type="text" class="link-short" id="link-gerado" name="link-gerado" value="abc123.com.br" />
+			<a class="copiar" ><img class="img-copy" src="resources/img/copy.png" alt="Copiar"></a>
+		  </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>	
+
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!--<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script> -->
+	<script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript">
+
+		var copyTextareaBtn = document.querySelector('.copiar');
+
+		copyTextareaBtn.addEventListener('click', function(event) {
+
+			console.log('click click');
+
+			var copyTextarea = document.querySelector('.link-short');
+			copyTextarea.select();
+
+			document.execCommand('copy');
+		});
+
+	</script>	
+
+</body>
+</html>
