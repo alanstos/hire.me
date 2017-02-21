@@ -15,6 +15,14 @@ public class Link {
 	
 	private Integer qtdAcesso;
 
+	public Link(String alias, String urlFinal, String urlOriginal) {
+		super();
+		this.alias = alias;
+		this.urlFinal = urlFinal;
+		this.urlOriginal = urlOriginal;
+		this.qtdAcesso = Integer.valueOf(0);
+	}
+
 	public String getUrlFinal() {
 		return urlFinal;
 	}
