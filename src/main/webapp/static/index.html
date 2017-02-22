@@ -1,115 +1,191 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Simplifique sua URL aqui</title>
+    
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" >
+    
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/grids-responsive-min.css">
+    
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
 
-	<title>Simplifique sua URL aqui</title>
-	<link rel="stylesheet" type="text/css" href="resources/css/bootstrap.min.css">
-	<link href="resources/img/fav.ico" rel="icon">
-	<style type="text/css">
+    <link rel="stylesheet" href="css/layouts/marketing.css">
 
-	body {
-		height: 200px;
-	}
+    <style type="text/css">
 
-	.resultado {
-		padding: 15px 0px; 
-	}
+        .img-copy{
+            width:20px; 
+            height:20px;
+        }
 
-	.img-copy{
-		width:20px; 
-		height:20px
-	}
+        .img-footer {
+            width:25px; 
+            height:25px;
+        }
 
-	footer {
-		height: 25px;
-		position: relative;
+        .copiar {
+            text-decoration:  none;
+            color: #7f8c8d;
+        }
 
-	}
+        .copiar a:link, .copiar a:visited {
+            text-decoration: none;  
+            color: #7f8c8d;
+        }
 
-	</style>
+        .copiar a:hover {
+            text-decoration: underline; 
+            color: #7f8c8d;
+        }
 
+        .copiar a:active {
+            text-decoration: none
+            color: #7f8c8d;
+        }
+
+
+
+    </style>        
 </head>
 <body>
 
-	<header class="container">
-		
-	</header>
+<div class="header">
+    <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+        <a class="pure-menu-heading" href=""></a>
 
-	<section class="container">
-		<form>
-		  <div class="form-group">
-		    <label for="link-url">Simplifique sua url</label>
-		    <input type="text" class="form-control" id="link-url" placeholder="Digite aqui seu link">
-		  </div>
-
-		  <button type="submit" class="btn btn-primary">Gerar seu novo link</button>
-
-		</form>
-
-		
-
-		<!-- Button trigger modal -->
-		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-		  Launch demo modal
-		</button>
-
-	</section>
-
-	<footer class="container">
-		<div>
-			<a class="git" ><img class="img-copy" src="resources/img/git.png" alt="git"></a>
-		</div>
-	</footer>
-
-
-
-
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Link gerado</h4>
-      </div>
-      <div class="modal-body">
-		  <div class="resultado">
-		    <label for="link-gerado"></label>
-			<input type="text" class="link-short" id="link-gerado" name="link-gerado" value="abc123.com.br" />
-			<a class="copiar" ><img class="img-copy" src="resources/img/copy.png" alt="Copiar"></a>
-		  </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-      </div>
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item pure-menu-selected">
+                <a href="index.html" class="pure-menu-link">Home</a></li>
+            <li class="pure-menu-item" >
+                <a href="lista.html" class="pure-menu-link">Dez mais</a></li>
+            <li class="pure-menu-item">
+                <a href="#" class="pure-menu-link">Sign Up</a></li>
+        </ul>
     </div>
-  </div>
-</div>	
+</div>
+
+<div class="splash-container">
+    <div class="splash">
+        <h1 class="splash-head">Encurtador de URL</h1>
+        <p class="splash-subhead">
+            Use endereços curtos para compartilhar links por e-mail ou redes sociais
+        </p>
+        <p>
+            <a href="#criar-link" class="pure-button pure-button-primary">Começar</a>
+        </p>
+    </div>
+</div>
+
+<div class="content-wrapper">
+
+    <div id="criar-link" class="content">
+        <h2 class="content-head is-center">Simplifique sua url</h2>
+
+        <div class="pure-g">
+            <div class="l-box-lrg pure-u-1 pure-u-md-2-5">
+                <form id="form-short" class="pure-form pure-form-stacked">
+                    <fieldset>
+
+                        <label for="url"></label>
+                        <input id="url" type="text" placeholder="Digite aqui seu link">
+
+                        <button type="submit" class="pure-button">Gerar seu novo link</button>
 
 
+                    </fieldset>
+                </form>
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<!--<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script> -->
-	<script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
+                        <button type="submit" class="pure-button" id="show">Show</button>
+                        <button type="submit" class="pure-button" id="hide">Hide</button>                
 
-	<script type="text/javascript">
+            </div>
 
-		var copyTextareaBtn = document.querySelector('.copiar');
+            <div class="l-box-lrg pure-u-1 pure-u-md-3-5">
+                <div id="result-link" style="display:none;">
+                    <h4>Seu link esta pronto! Copie </h4>
+                    <form class="pure-form ">
+                        <fieldset>
+                            
 
-		copyTextareaBtn.addEventListener('click', function(event) {
+                            <input type="text"  class="link-short" id="link-gerado" name="link-gerado" value="abc123.com.br" readonly />
+                            <a href="#criar-link" class="copiar" >Copiar <img class="img-copy" src="img/copy.png" alt="Copiar"></a>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>            
 
-			console.log('click click');
+        </div>
 
-			var copyTextarea = document.querySelector('.link-short');
-			copyTextarea.select();
+    </div>
 
-			document.execCommand('copy');
-		});
+    <div class="footer l-box is-center">
+        <img class="img-footer" src="img/ghub.png" alt=""> https://github.com/alanstos/ 
+    </div>
 
-	</script>	
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <script type="text/javascript">
+
+        var copyTextareaBtn = document.querySelector('.copiar');
+
+        copyTextareaBtn.addEventListener('click', function(event) {
+
+            console.log('click click');
+
+            var copyTextarea = document.querySelector('.link-short');
+            copyTextarea.select();
+
+            document.execCommand('copy');
+        });
+
+        $("#form-short").submit(function(event){
+            event.preventDefault();
+            console.log('entrou no submit');
+            $("#result-link").show();
+            
+            var dado = {url: 'google.com/flamengo',
+            		customAlias:'tabajara'};
+            
+            console.log(dado);
+            
+            //var uri = '/hire.me/encurtar/criar2?url=g1.com.br&alias=fly';
+            var uri = '/hire.me/encurtar/criar2';
+            
+            $.ajax( {
+            	url: uri,
+            	data: dado,
+            	method :'POST'
+            })
+            .done(function(obj) {
+              console.log( "success" );
+              console.log(obj);
+            })
+            .fail(function() {
+              console.log( "error" );
+            })
+            .always(function() {
+              console.log( "complete" );
+            });
+            
+        });
+
+        $("#hide").click(function(){
+            
+            $("#result-link").hide();
+        });
+
+        $("#show").click(function(){
+            
+            $("#result-link").show();
+        });        
+
+    </script>   
 
 </body>
 </html>

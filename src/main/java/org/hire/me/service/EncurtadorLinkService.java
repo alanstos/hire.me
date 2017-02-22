@@ -1,5 +1,6 @@
 package org.hire.me.service;
 
+import java.util.List;
 import java.util.Random;
 
 import org.hire.me.dao.LinkDao;
@@ -24,25 +25,41 @@ public class EncurtadorLinkService {
 		
 		verificaSeJaExisteAlias(customAlias);
 		
-		String aliasKey = EncurtadorLinkUtil.isEmpty(customAlias) ? EncurtadorLinkUtil.generateKey() : customAlias;
+		String alias = getAlias(customAlias);
 		
-		String shortUrl = EncurtadorLinkUtil.generateShortUrl(aliasKey);
+		String shortUrl = EncurtadorLinkUtil.generateShortUrl(alias);
 		
-		Link link = new Link(aliasKey,shortUrl,url);
+		Link link = new Link(alias,shortUrl,url);
 		
 		linkDao.salvar(link);
 		
 		return link;
 	}
+
 	
 	public Link recuperar(String alias) {
 		
 		Link linkByAlias = linkDao.findByAlias(alias);
 		
-		if (linkByAlias != null)
-			throw new EncurtadorLinkException("002","Description:SHORTENED URL NOT FOUND");		
+		if (linkByAlias == null)
+			throw new EncurtadorLinkException("002","Description:SHORTENED URL NOT FOUND");	
 		
-		return null;
+		somaUmAcessoAoLink(linkByAlias);
+		
+		return linkByAlias;
+	}	
+	
+	private void somaUmAcessoAoLink(Link link){
+		Integer numAcesso = link.getQtdAcesso();
+		
+		link.setQtdAcesso( ++numAcesso );
+		
+		linkDao.updateQtdAcesso(link);
+	}
+	
+
+	private String getAlias(String customAlias) {
+		return EncurtadorLinkUtil.isEmpty(customAlias) ? EncurtadorLinkUtil.generateKey() : customAlias;
 	}	
 
 	private void verificaSeJaExisteAlias(String customAlias) {
@@ -54,6 +71,11 @@ public class EncurtadorLinkService {
 				throw new EncurtadorLinkException("001","CUSTOM ALIAS ALREADY EXISTS");			
 			
 		}
+	}
+
+
+	public List<Link> listar() {
+		return linkDao.getlistar();
 	}
 
 

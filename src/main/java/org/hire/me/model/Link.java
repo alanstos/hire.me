@@ -14,6 +14,11 @@ public class Link {
 	private String urlOriginal;
 	
 	private Integer qtdAcesso;
+	
+
+	public Link() {
+		super();
+	}
 
 	public Link(String alias, String urlFinal, String urlOriginal) {
 		super();

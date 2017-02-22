@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class EncurtadorLinkUtil {
 	
-	private static final String BASE_URL_SHORT = "http://alanstos.heroku.com.br";
+	private static final String BASE_URL_SHORT = "http://shortener";
 
 	public static String generateShortUrl(String alias){
 		return BASE_URL_SHORT + "/u/" + alias;

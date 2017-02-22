@@ -1,25 +1,27 @@
 package org.hire.me.vo;
 
-public class LinkVo {
+import org.hire.me.model.Link;
+
+public class LinkVo extends BaseVo {
 	
-	private String alias;
 	private String url;
 	
 	private EstatisticaVo estatisticas;
+	
+	public static LinkVo parse(Link link, Long tempoGasto){
+		LinkVo vo = new LinkVo(link.getAlias(), link.getUrlFinal(), tempoGasto);
+		return vo;
+	}
+	
+	public static LinkVo parseUrlOriginal(Link link, Long tempoGasto){
+		LinkVo vo = new LinkVo(link.getAlias(), link.getUrlOriginal(), tempoGasto);
+		return vo;
+	}	
 
 	public LinkVo(String alias, String url, Long tempoGasto) {
-		super();
-		this.alias = alias;
+		super(alias);
 		this.url = url;
 		this.estatisticas = new EstatisticaVo(tempoGasto);
-	}
-
-	public String getAlias() {
-		return alias;
-	}
-
-	public void setAlias(String alias) {
-		this.alias = alias;
 	}
 
 	public String getUrl() {

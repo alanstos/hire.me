@@ -1,19 +1,19 @@
 package org.hire.me.vo;
 
-public class ErrorVo {
-	
-	private String alias;
+public class ErrorVo extends BaseVo{
 	
 	private String errCode;
 	
 	private String descricao;
-
-	public String getAlias() {
-		return alias;
-	}
-
-	public void setAlias(String alias) {
-		this.alias = alias;
+	
+	public static BaseVo parse(String alias, String code, String message) {
+		return new ErrorVo(alias, code, message);
+	}	
+	
+	public ErrorVo(String alias,String errCode, String descricao) {
+		super(alias);
+		this.errCode = errCode;
+		this.descricao = descricao;
 	}
 
 	public String getErrCode() {
@@ -31,7 +31,5 @@ public class ErrorVo {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	
-	
 
 }

@@ -42,7 +42,7 @@ public class JPAConfiguration {
 		dataSource.setUsername("root");
 		dataSource.setPassword("root");
 		dataSource.setUrl("jdbc:mysql://localhost:3306/links?useTimezone=true&serverTimezone=UTC");
-		dataSource.setDriverClassName("com.mysql.jdbc.Driver"); //TODO novo drive com.mysql.cj.jdbc.Driver
+		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");//"com.mysql.jdbc.Driver"); //TODO novo drive com.mysql.cj.jdbc.Driver
 		return dataSource;
 	}
 	
