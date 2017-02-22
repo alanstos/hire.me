@@ -1,0 +1,36 @@
+
+.img-copy{
+    width:20px; 
+    height:20px;
+}
+
+.img-footer {
+    width:25px; 
+    height:25px;
+}
+
+.copiar {
+    text-decoration:  none;
+    color: #7f8c8d;
+}
+
+.copiar a:link, .copiar a:visited {
+    text-decoration: none;  
+    color: #7f8c8d;
+}
+
+.copiar a:hover {
+    text-decoration: underline; 
+    color: #7f8c8d;
+}
+
+.copiar a:active {
+    text-decoration: none
+    color: #7f8c8d;
+}
+
+
+.pure-menu-selected .pure-menu-link:visited {
+    color : white;
+}
+

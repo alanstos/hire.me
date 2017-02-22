@@ -14,41 +14,8 @@
 
     <link rel="stylesheet" href="css/layouts/marketing.css">
 
-    <style type="text/css">
-
-        .img-copy{
-            width:20px; 
-            height:20px;
-        }
-
-        .img-footer {
-            width:25px; 
-            height:25px;
-        }
-
-        .copiar {
-            text-decoration:  none;
-            color: #7f8c8d;
-        }
-
-        .copiar a:link, .copiar a:visited {
-            text-decoration: none;  
-            color: #7f8c8d;
-        }
-
-        .copiar a:hover {
-            text-decoration: underline; 
-            color: #7f8c8d;
-        }
-
-        .copiar a:active {
-            text-decoration: none
-            color: #7f8c8d;
-        }
-
-
-
-    </style>        
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+      
 </head>
 <body>
 
@@ -60,7 +27,7 @@
             <li class="pure-menu-item pure-menu-selected">
                 <a href="index.html" class="pure-menu-link">Home</a></li>
             <li class="pure-menu-item" >
-                <a href="lista.html" class="pure-menu-link">Dez mais</a></li>
+                <a href="lista.html" class="pure-menu-link" id="dez-mais">Dez mais</a></li>
             <li class="pure-menu-item">
                 <a href="#" class="pure-menu-link">Sign Up</a></li>
         </ul>
@@ -89,10 +56,13 @@
                 <form id="form-short" class="pure-form pure-form-stacked">
                     <fieldset>
 
-                        <label for="url"></label>
-                        <input id="url" type="text" placeholder="Digite aqui seu link">
+                        <label for="url">URL</label>
+                        <input id="url" type="text" placeholder="Digite aqui seu link. Ex.: www.google.com.br">
 
-                        <button type="submit" class="pure-button">Gerar seu novo link</button>
+                        <label for="key">Alias</label>
+                        <input id="key" type="text" placeholder="Digite um alias para seu link. Ex.: meunick">                        
+
+                        <button type="submit" class="pure-button">Gerar link simplificado</button>
 
 
                     </fieldset>
@@ -105,7 +75,7 @@
 
             <div class="l-box-lrg pure-u-1 pure-u-md-3-5">
                 <div id="result-link" style="display:none;">
-                    <h4>Seu link esta pronto! Copie </h4>
+                    <h4>Seu link está pronto! Copie e compartilhe agora. </h4>
                     <form class="pure-form ">
                         <fieldset>
                             
@@ -130,62 +100,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-    <script type="text/javascript">
-
-        var copyTextareaBtn = document.querySelector('.copiar');
-
-        copyTextareaBtn.addEventListener('click', function(event) {
-
-            console.log('click click');
-
-            var copyTextarea = document.querySelector('.link-short');
-            copyTextarea.select();
-
-            document.execCommand('copy');
-        });
-
-        $("#form-short").submit(function(event){
-            event.preventDefault();
-            console.log('entrou no submit');
-            $("#result-link").show();
-            
-            var dado = {url: 'google.com/flamengo',
-            		customAlias:'tabajara'};
-            
-            console.log(dado);
-            
-            //var uri = '/hire.me/encurtar/criar2?url=g1.com.br&alias=fly';
-            var uri = '/hire.me/encurtar/criar2';
-            
-            $.ajax( {
-            	url: uri,
-            	data: dado,
-            	method :'POST'
-            })
-            .done(function(obj) {
-              console.log( "success" );
-              console.log(obj);
-            })
-            .fail(function() {
-              console.log( "error" );
-            })
-            .always(function() {
-              console.log( "complete" );
-            });
-            
-        });
-
-        $("#hide").click(function(){
-            
-            $("#result-link").hide();
-        });
-
-        $("#show").click(function(){
-            
-            $("#result-link").show();
-        });        
-
-    </script>   
+<script type="text/javascript" src="js/script.js"></script>
 
 </body>
 </html>

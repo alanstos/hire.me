@@ -16,42 +16,7 @@
 
     <link rel="stylesheet" href="css/layouts/marketing.css">
 
-
-    <style type="text/css">
-
-        .img-copy{
-            width:20px; 
-            height:20px;
-        }
-
-        .img-footer {
-            width:25px; 
-            height:25px;
-        }
-
-        .copiar {
-            text-decoration:  none;
-            color: #7f8c8d;
-        }
-
-        .copiar a:link, .copiar a:visited {
-            text-decoration: none;  
-            color: #7f8c8d;
-        }
-
-        .copiar a:hover {
-            text-decoration: underline; 
-            color: #7f8c8d;
-        }
-
-        .copiar a:active {
-            text-decoration: none
-            color: #7f8c8d;
-        }
-
-
-
-    </style>         
+    <link rel="stylesheet" type="text/css" href="css/style.css">   
 </head>
 <body>
 
@@ -76,13 +41,14 @@
     <div class="content">
         <h2 class="content-head is-center">Os dez mais acessados</h2>
         
-        <table class="pure-table">
+        <table id="tb-dez-mais" class="pure-table">
             <thead>
                 <tr>
                     <th></th>
                     <th>Alias</th>
                     <th>URL</th>
                     <th>Acessos</th>
+                    <th>Original</th>
                 </tr>
             </thead>
 
@@ -92,6 +58,7 @@
                     <td>Honda</td>
                     <td>Accord</td>
                     <td>2009</td>
+                    <td>Honda</td>
                 </tr>
 
                 <tr>
@@ -99,6 +66,7 @@
                     <td>Toyota</td>
                     <td>Camry</td>
                     <td>2012</td>
+                    <td>Honda</td>
                 </tr>
 
                 <tr class="pure-table-odd">
@@ -106,6 +74,7 @@
                     <td>Hyundai</td>
                     <td>Elantra</td>
                     <td>2010</td>
+                    <td>Honda</td>
                 </tr>
 
                 <tr>
@@ -113,6 +82,7 @@
                     <td>Ford</td>
                     <td>Focus</td>
                     <td>2008</td>
+                    <td>Honda</td>
                 </tr>
 
                 <tr class="pure-table-odd">
@@ -120,6 +90,7 @@
                     <td>Nissan</td>
                     <td>Sentra</td>
                     <td>2011</td>
+                    <td>Honda</td>
                 </tr>
 
                 <tr>
@@ -127,6 +98,7 @@
                     <td>BMW</td>
                     <td>M3</td>
                     <td>2009</td>
+                    <td>Honda</td>
                 </tr>
 
                 <tr class="pure-table-odd">
@@ -134,6 +106,7 @@
                     <td>Honda</td>
                     <td>Civic</td>
                     <td>2010</td>
+                    <td>Honda</td>
                 </tr>
 
                 <tr>
@@ -141,6 +114,7 @@
                     <td>Kia</td>
                     <td>Soul</td>
                     <td>2010</td>
+                    <td>Honda</td>
                 </tr>
             </tbody>
         </table>            
@@ -155,7 +129,8 @@
 
 </div>
 
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="js/list.js"></script>
   
 
 </body>
