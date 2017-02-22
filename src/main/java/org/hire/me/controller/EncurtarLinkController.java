@@ -34,6 +34,16 @@ public class EncurtarLinkController {
 		
 		return new ErrorVo("test", "", obj.toString());
 	}
+	
+	@RequestMapping(value="listaRequestLinkVo", method={RequestMethod.GET})
+	public RequestLinkVo listaRequestLinkVo(){
+		
+		RequestLinkVo vo = new RequestLinkVo();
+		vo.setCustomAlias("2343ewr");
+		vo.setUrl("terra.com.br");
+		
+		return vo;
+	}	
 
 	
 	@RequestMapping(value="criar/{url}/{customAlias}", method={RequestMethod.PUT,RequestMethod.POST})
