@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class LinkVo extends BaseVo {
 	
+	@JsonProperty("url")
 	private String url;
 	
 	@JsonProperty("statistics")

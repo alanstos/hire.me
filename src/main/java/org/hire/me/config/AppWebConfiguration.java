@@ -16,34 +16,7 @@ public class AppWebConfiguration extends WebMvcConfigurerAdapter {
 	
 	@Override
 	public void addResourceHandlers(final ResourceHandlerRegistry registry) {
-//		registry.addResourceHandler("/**").addResourceLocations("/**");
 	    registry.addResourceHandler("/static/**").addResourceLocations("/static/");
 	}	
-	
-//	@Bean
-//	public ViewResolver contentNegotiationViewResolver(ContentNegotiationManager manager){
-//	    List<ViewResolver> viewResolvers = new ArrayList<>();
-//	    viewResolvers.add(new JsonViewResolver());
-//
-//	    ContentNegotiatingViewResolver resolver = new ContentNegotiatingViewResolver();
-//	    resolver.setViewResolvers(viewResolvers);
-//	    resolver.setContentNegotiationManager(manager);
-//	    return resolver;
-//	}	
-	
-//	@Bean
-//	public MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter() {
-//		MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter = new MappingJackson2HttpMessageConverter();
-//		mappingJackson2HttpMessageConverter.setObjectMapper(objectMapper());
-//		mappingJackson2HttpMessageConverter.setPrettyPrint(true);
-//		return mappingJackson2HttpMessageConverter;
-//	}
-//
-//	@Bean
-//	public ObjectMapper objectMapper() {
-//		ObjectMapper objMapper = new ObjectMapper();
-//		objMapper.enable(SerializationFeature.INDENT_OUTPUT);
-//		return objMapper;
-//	}
 
 }
