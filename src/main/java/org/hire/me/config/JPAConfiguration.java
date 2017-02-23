@@ -17,13 +17,13 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class JPAConfiguration {
 	
 	@Bean
-	public LocalContainerEntityManagerFactoryBean entityManagerFactory(){
+	public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource){
 		LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
 		
 		JpaVendorAdapter jpaVendorAdapter = new HibernateJpaVendorAdapter();
 		
 		factoryBean.setJpaVendorAdapter(jpaVendorAdapter);
-		factoryBean.setDataSource(dataSource());
+		factoryBean.setDataSource(dataSource);
 		factoryBean.setJpaProperties(props());
 		
 		factoryBean.setPackagesToScan("org.hire.me.model");

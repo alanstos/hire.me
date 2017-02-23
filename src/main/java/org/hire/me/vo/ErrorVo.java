@@ -1,9 +1,13 @@
 package org.hire.me.vo;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class ErrorVo extends BaseVo{
 	
+	@JsonProperty("err_code")
 	private String errCode;
 	
+	@JsonProperty("description")
 	private String descricao;
 	
 	public static BaseVo parse(String alias, String code, String message) {

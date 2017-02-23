@@ -2,10 +2,13 @@ package org.hire.me.vo;
 
 import org.hire.me.model.Link;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class LinkVo extends BaseVo {
 	
 	private String url;
 	
+	@JsonProperty("statistics")
 	private EstatisticaVo estatisticas;
 	
 	public static LinkVo parse(Link link, Long tempoGasto){

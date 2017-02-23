@@ -1,7 +1,10 @@
 package org.hire.me.vo;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class EstatisticaVo {
 	
+	@JsonProperty("time_taken")
 	private Long tempoGasto;
 
 	public EstatisticaVo(Long tempoGasto) {

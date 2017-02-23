@@ -29,7 +29,7 @@
                 <a href="index.html" class="pure-menu-link">Home</a></li>
             <li class="pure-menu-item pure-menu-selected" >
                 <a href="lista.html" class="pure-menu-link">Dez mais</a></li>
-           <li class="pure-menu-item">
+            <li class="pure-menu-item">
                 <a href="servico.html" class="pure-menu-link">Serviços</a></li>
         </ul>
     </div>
@@ -39,21 +39,29 @@
 <div class="">
 
     <div class="content">
-        <h2 class="content-head is-center">Os dez mais acessados</h2>
+        <h2 class="content-head is-center">Serviços do E-URL</h2>
         
-        <table id="tb-dez-mais" class="pure-table">
+        <table id="tb-servicos" class="pure-table">
             <thead>
                 <tr>
                     <th></th>
-                    <th>Alias</th>
-                    <th>URL</th>
-                    <th>Acessos</th>
-                    <th>Original</th>
+                    <th>Nome</th>
+                    <th>URI</th>
                 </tr>
             </thead>
 
             <tbody>
+               <tr>
+                    <td>1</td>
+                    <td>Criar</td>
+                    <td>/encurtar/criar</td>
+                </tr>
 
+                <tr class="pure-table-odd">
+					<td>2</td>
+                    <td>Recuperar</td>
+                    <td>/encurtar/recuperar/{alias}</td>
+                </tr>
             </tbody>
         </table>            
         
@@ -68,7 +76,6 @@
 </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script type="text/javascript" src="js/list.js"></script>
   
 
 </body>

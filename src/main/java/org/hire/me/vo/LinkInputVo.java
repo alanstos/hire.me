@@ -2,7 +2,7 @@ package org.hire.me.vo;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class RequestLinkVo {
+public class LinkInputVo {
 	
 	@JsonProperty("url")
 	private String url;

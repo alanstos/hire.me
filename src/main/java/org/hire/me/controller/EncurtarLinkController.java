@@ -2,14 +2,16 @@ package org.hire.me.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.hire.me.exception.EncurtadorLinkException;
 import org.hire.me.model.Link;
 import org.hire.me.service.EncurtadorLinkService;
 import org.hire.me.util.DataUtil;
 import org.hire.me.vo.BaseVo;
 import org.hire.me.vo.ErrorVo;
+import org.hire.me.vo.LinkInputVo;
 import org.hire.me.vo.LinkVo;
-import org.hire.me.vo.RequestLinkVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,38 +26,39 @@ public class EncurtarLinkController {
 	@Autowired
 	EncurtadorLinkService service;
 	
-	@RequestMapping(value="criar2", method={RequestMethod.PUT,RequestMethod.POST})
-	@ResponseBody
-	public ErrorVo criar2(RequestLinkVo obj){
-		
-		System.out.println("bagteu");
-		
-		System.out.println(obj);
-		
-		return new ErrorVo("test", "", obj.toString());
-	}
+//	@RequestMapping(value="criar2", method={RequestMethod.PUT,RequestMethod.POST})
+//	@ResponseBody
+//	public ErrorVo criar2(LinkInputVo obj){
+//		
+//		System.out.println("bagteu");
+//		
+//		System.out.println(obj);
+//		
+//		return new ErrorVo("test", "", obj.toString());
+//	}
 	
-	@RequestMapping(value="listaRequestLinkVo", method={RequestMethod.GET})
-	public RequestLinkVo listaRequestLinkVo(){
-		
-		RequestLinkVo vo = new RequestLinkVo();
-		vo.setCustomAlias("2343ewr");
-		vo.setUrl("terra.com.br");
-		
-		return vo;
-	}	
+//	@RequestMapping(value="listaRequestLinkVo", method={RequestMethod.GET})
+//	@ResponseBody
+//	public LinkInputVo listaRequestLinkVo(){
+//		
+//		LinkInputVo vo = new LinkInputVo();
+//		vo.setCustomAlias("2343ewr");
+//		vo.setUrl("terra.com.br");
+//		
+//		return vo;
+//	}	
 
 	
-	@RequestMapping(value="criar/{url}/{customAlias}", method={RequestMethod.PUT,RequestMethod.POST})
+	@RequestMapping(value="criar", method={RequestMethod.PUT,RequestMethod.POST})
 	@ResponseBody
-	public BaseVo criar(@PathVariable String url, @PathVariable(required=false) String customAlias){
+	public BaseVo criar(LinkInputVo linkInputVo){
 		try {
-			
-			System.out.println("criar / " + url + " | " +customAlias);
-			
 			long inicioTimeInMillis = DataUtil.getAgoraInMillis();
 			
-			Link link = service.criar(url,customAlias);
+			System.out.println("criar / " + linkInputVo.getUrl() + " | " + linkInputVo.getCustomAlias());
+			
+			
+			Link link = service.criar(linkInputVo.getUrl(),linkInputVo.getCustomAlias());
 			
 			long fimTimeInMillis = DataUtil.getAgoraInMillis();
 			
@@ -67,10 +70,10 @@ public class EncurtarLinkController {
 			
 		} catch (EncurtadorLinkException e) {
 			e.printStackTrace();
-			return ErrorVo.parse(customAlias, e.getCode(), e.getMessage());
+			return ErrorVo.parse(linkInputVo.getCustomAlias(), e.getCode(), e.getMessage());
 		} catch (Exception e) {
 			e.printStackTrace();
-			return ErrorVo.parse(customAlias, "999", e.getMessage());
+			return ErrorVo.parse(linkInputVo.getCustomAlias(), "999", e.getMessage());
 		}
 		
 	}
@@ -100,11 +103,18 @@ public class EncurtarLinkController {
 	@RequestMapping(value="listar", method={RequestMethod.GET})
 	@ResponseBody
 	public List<Link> listar(){
-		System.out.println("listar / " );
 		
-		List<Link> links = service.listar();
+		List<Link> links = service.listaDezMais();
 		
 		return links;
 	}	
+	
+   @RequestMapping(value = "/redirect", method = RequestMethod.GET)
+    public String method(HttpServletResponse httpServletResponse) {
+	   System.out.println("reci ");
+        String projectUrl = "http://www.g1.com.br";
+		httpServletResponse.setHeader("Location", projectUrl);
+		return "redirect:" + projectUrl;
+    }	
 
 }

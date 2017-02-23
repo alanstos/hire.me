@@ -1,22 +1,32 @@
 package org.hire.me.controller;
 
-import org.hire.me.vo.LinkVo;
+import org.hire.me.model.Link;
+import org.hire.me.service.EncurtadorLinkService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
-//@Controller
-
+@Controller
+@RequestMapping("u")
 public class AcessoController {
 	
-//	@RequestMapping(value="{alias}", method={RequestMethod.GET})
-//	@ResponseBody
-//	public String recuperar(@PathVariable String alias){
-//		//ERR_CODE: 002, Description:SHORTENED URL NOT FOUND
-//		return new LinkVo("goolgle.ico/u/adsfads","goolgle.com/flamengo",100l);
-//	}
+	@Autowired
+	EncurtadorLinkService service;	
+	
+	@RequestMapping(value="/{alias}", method={RequestMethod.GET})
+	public String redirect(@PathVariable String alias){
+		Link link = service.recuperar(alias);
+		
+		String redirectUrl = link.getUrlOriginal();
+		
+		if (!redirectUrl.startsWith("http://") &&  !redirectUrl.startsWith("https://")){
+			redirectUrl = "http://" +link.getUrlOriginal(); 
+		}
+		
+		return "redirect:" + redirectUrl;
+	}
 	
 
 }

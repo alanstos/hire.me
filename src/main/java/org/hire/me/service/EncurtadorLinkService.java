@@ -1,7 +1,6 @@
 package org.hire.me.service;
 
 import java.util.List;
-import java.util.Random;
 
 import org.hire.me.dao.LinkDao;
 import org.hire.me.exception.EncurtadorLinkException;
@@ -17,11 +16,10 @@ public class EncurtadorLinkService {
 	
 	@Autowired
 	private LinkDao linkDao;
-	
-	
-
 
 	public Link criar(String url, String customAlias) {
+		
+		validaCriar(url);
 		
 		verificaSeJaExisteAlias(customAlias);
 		
@@ -35,9 +33,10 @@ public class EncurtadorLinkService {
 		
 		return link;
 	}
-
 	
 	public Link recuperar(String alias) {
+		
+		validaRecupera(alias);
 		
 		Link linkByAlias = linkDao.findByAlias(alias);
 		
@@ -47,6 +46,16 @@ public class EncurtadorLinkService {
 		somaUmAcessoAoLink(linkByAlias);
 		
 		return linkByAlias;
+	}	
+	
+	private void validaCriar(String url){
+		if (url == null || url.isEmpty())
+			throw new EncurtadorLinkException("999", "Campo URL é obrigatório");
+	}
+	
+	private void validaRecupera(String alias){
+		if (alias == null || alias.isEmpty())
+			throw new EncurtadorLinkException("999", "Campo Alias é obrigatório");
 	}	
 	
 	private void somaUmAcessoAoLink(Link link){
@@ -73,12 +82,8 @@ public class EncurtadorLinkService {
 		}
 	}
 
-
-	public List<Link> listar() {
-		return linkDao.getlistar();
+	public List<Link> listaDezMais() {
+		return linkDao.getlistarMaxDez();
 	}
-
-
-	
 
 }
